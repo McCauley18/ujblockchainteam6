@@ -15,6 +15,8 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+// import { Bar } from "react-chartjs-2";
+// import { chartOptions, chartExample2 } from "../../variables/charts.js";
 import { useState } from "react";
 // node.js library that concatenates classes (strings)
 import classnames from "classnames";
@@ -145,7 +147,7 @@ const Index = (props) => {
           </Col>
         </Row>
         <Row className="mt-5">
-          <Col className="mb-5 mb-xl-0" xl="8">
+          <Col className="mb-5 mb-xl-0" xl="4">
             <Card className="shadow">
               <CardHeader className="border-0">
                 <Row className="align-items-center">
@@ -164,69 +166,66 @@ const Index = (props) => {
                   </div>
                 </Row>
               </CardHeader>
-              <Table className="align-items-center table-flush" responsive>
-                <thead className="thead-light">
-                  <tr>
-                    <th scope="col">Page name</th>
-                    <th scope="col">Visitors</th>
-                    <th scope="col">Unique users</th>
-                    <th scope="col">Bounce rate</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">/argon/</th>
-                    <td>4,569</td>
-                    <td>340</td>
-                    <td>
-                      <i className="fas fa-arrow-up text-success mr-3" /> 46,53%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/index.html</th>
-                    <td>3,985</td>
-                    <td>319</td>
-                    <td>
-                      <i className="fas fa-arrow-down text-warning mr-3" />{" "}
-                      46,53%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/charts.html</th>
-                    <td>3,513</td>
-                    <td>294</td>
-                    <td>
-                      <i className="fas fa-arrow-down text-warning mr-3" />{" "}
-                      36,49%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/tables.html</th>
-                    <td>2,050</td>
-                    <td>147</td>
-                    <td>
-                      <i className="fas fa-arrow-up text-success mr-3" /> 50,87%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">/argon/profile.html</th>
-                    <td>1,795</td>
-                    <td>190</td>
-                    <td>
-                      <i className="fas fa-arrow-down text-danger mr-3" />{" "}
-                      46,53%
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
+
+              {/* LIMIT HEIGHT */}
+              <CardBody style={{ maxWidth: "250px", overflowY: "auto", padding: 0 }}>
+                <Table className="align-items-center table-flush" responsive>
+                  <thead className="thead-light">
+                    <tr>
+                      <th scope="col">Provinces</th>
+                      <th scope="col">Buyers</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <th scope="row">Gauteng</th>
+                      <td>4,569</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Limpopo</th>
+                      <td>3,985</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">free state</th>
+                      <td>3,513</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Mpumalanga</th>
+                      <td>2,050</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Western cape</th>
+                      <td>1,795</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">KZN</th>
+                      <td>1855</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">North West</th>
+                      <td>1795</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Eastern cape</th>
+                      <td>195</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Northern cape</th>
+                      <td>795</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </CardBody>
             </Card>
+
           </Col>
-          <Col xl="4">
+          <Col xl="8">
             <Card className="shadow">
               <CardHeader className="border-0">
                 <Row className="align-items-center">
                   <div className="col">
-                    <h3 className="mb-0">Social traffic</h3>
+                    <h3 className="mb-0">Sales per category</h3>
                   </div>
                   <div className="col text-right">
                     <Button
@@ -240,95 +239,37 @@ const Index = (props) => {
                   </div>
                 </Row>
               </CardHeader>
-              <Table className="align-items-center table-flush" responsive>
-                <thead className="thead-light">
-                  <tr>
-                    <th scope="col">Referral</th>
-                    <th scope="col">Visitors</th>
-                    <th scope="col" />
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Facebook</th>
-                    <td>1,480</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">60%</span>
-                        <div>
-                          <Progress
-                            max="100"
-                            value="60"
-                            barClassName="bg-gradient-danger"
-                          />
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Facebook</th>
-                    <td>5,480</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">70%</span>
-                        <div>
-                          <Progress
-                            max="100"
-                            value="70"
-                            barClassName="bg-gradient-success"
-                          />
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Google</th>
-                    <td>4,807</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">80%</span>
-                        <div>
-                          <Progress max="100" value="80" />
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Instagram</th>
-                    <td>3,678</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">75%</span>
-                        <div>
-                          <Progress
-                            max="100"
-                            value="75"
-                            barClassName="bg-gradient-info"
-                          />
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">twitter</th>
-                    <td>2,645</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">30%</span>
-                        <div>
-                          <Progress
-                            max="100"
-                            value="30"
-                            barClassName="bg-gradient-warning"
-                          />
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
+
+              <div className="chart">
+                <Bar
+                  data={{
+                    labels: ["pesticides", "insecticide", "herbicides", "seeds", "fertilizers", "tool"],
+                    datasets: [
+                      {
+                        label: "Sales",
+                        data: [50, 30, 40, 60, 20, 35],
+                        backgroundColor: "rgba(72, 72, 176, 0.6)",
+                        borderColor: "rgba(72, 72, 176, 1)",
+                        borderWidth: 2,
+                        maxBarThickness: 12,
+                      },
+                    ],
+                  }}
+                  options={{
+                    ...chartOptions().defaults.global,
+                    scales: {
+                      yAxes: [
+                        {
+                          ticks: { beginAtZero: true },
+                        },
+                      ],
+                    },
+                  }}
+                />
+              </div>
             </Card>
           </Col>
+
         </Row>
       </Container>
     </>
