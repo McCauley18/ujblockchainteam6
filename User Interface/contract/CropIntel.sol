@@ -56,7 +56,7 @@ contract ItemMarketplace {
 
         emit ItemListed(itemId, msg.sender, _name, _price);
         nextItemId++;
-    }
+    } 
 
     /**
      * @notice Allows a buyer to purchase a listed item.
