@@ -39,13 +39,13 @@ var routes = [
     component: <Icons />,
     layout: "/admin",
   },
-  {
-     path: "/Order",
-    name: "orders",
-    icon: "ni ni-folder-17 text-gray",
-    component: <Order />,
-    layout: "/admin",
-  },
+  // {
+  //    path: "/Order",
+  //   name: "orders",
+  //   icon: "ni ni-folder-17 text-gray",
+  //   component: <Order />,
+  //   layout: "/admin",
+  // },
   {
     path: "/maps",
     name: "Maps",
