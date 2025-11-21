@@ -22,6 +22,7 @@ import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
+import Order from "views/examples/Order.js";
 
 var routes = [
   {
@@ -33,9 +34,16 @@ var routes = [
   },
   {
     path: "/icons",
-    name: "Icons",
-    icon: "ni ni-planet text-blue",
+    name: "Products",
+    icon: "ni ni-cart",
     component: <Icons />,
+    layout: "/admin",
+  },
+  {
+     path: "/Order",
+    name: "orders",
+    icon: "ni ni-folder-17 text-gray",
+    component: <Order />,
     layout: "/admin",
   },
   {
