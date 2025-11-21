@@ -1,47 +1,47 @@
 /*!
 =========================================================
-* Argon Dashboard React - FREE Leaflet Map Version
+* Argon Dashboard React - Improved Leaflet Map
 =========================================================
 */
 
 import React from "react";
 import { Card, Container, Row } from "reactstrap";
 
-// leaflet + react-leaflet components
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 
-// core components
 import Header from "components/Headers/Header.js";
 
-// Fix default Leaflet marker icons not showing in React
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
-  iconUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+// Custom green marker icon
+const agrimarkIcon = new L.Icon({
+  iconUrl: "https://maps.gstatic.com/mapfiles/ms2/micons/green.png",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -30],
 });
+
+// AgriMark South Africa (example: Cape Town branch)
+const AGRIMARK_COORDS = [-30.603369, 18.689977];
 
 const MapWrapper = () => {
   return (
     <MapContainer
-      center={[40.748817, -73.985428]}   // NYC
-      zoom={13}
-      style={{ height: "600px", width: "100%" }}
-      scrollWheelZoom={false}
+      center={AGRIMARK_COORDS}   // Center map on South Africa
+      zoom={12}
+      style={{ height: "600px", width: "100%", borderRadius: "12px" }}
+      scrollWheelZoom={true}
     >
-      {/* OpenStreetMap FREE tiles */}
-      <TileLayer 
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" 
+      {/* Better, clean tile layer styling */}
+      <TileLayer
+        attribution='&copy; OpenStreetMap contributors'
+        url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
       />
 
-      {/* Marker */}
-      <Marker position={[40.748817, -73.985428]}>
+      {/* AgriMark Marker */}
+      <Marker position={AGRIMARK_COORDS} icon={agrimarkIcon}>
         <Popup>
-          Argon Dashboard React • Leaflet Map <br /> Fully Free!
+          <strong>AgriMark South Africa</strong> <br />
+          (Cape Town Branch)
         </Popup>
       </Marker>
     </MapContainer>
@@ -59,10 +59,10 @@ const Maps = () => {
               <MapWrapper />
             </Card>
           </div>
-        </Row>
+        </Row> 
       </Container>
     </>
   );
 };
 
-export default Maps;
+export default Maps; 

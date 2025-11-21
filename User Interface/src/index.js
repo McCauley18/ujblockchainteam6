@@ -1,4 +1,4 @@
-npm/*!
+/*!
 
 =========================================================
 * Argon Dashboard React - v1.2.4
@@ -23,7 +23,7 @@ import "assets/plugins/nucleo/css/nucleo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/scss/argon-dashboard-react.scss";
 
-import "leaflet/dist/leaflet.css";
+import "leaflet/dist/leaflet.css"; 
 
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
